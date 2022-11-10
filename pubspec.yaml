@@ -36,6 +36,13 @@ dependencies:
   geolocator: ^9.0.2
   dio:
 
+  permission_handler:
+
+  camera: ^0.10.0+4
+  path_provider:
+  path:
+  provider:
+
 
 
   # The following adds the Cupertino Icons font to your application.

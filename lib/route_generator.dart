@@ -1,13 +1,15 @@
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:testlocation/bloc/geo_bloc/geo_bloc.dart';
-import 'package:testlocation/screens/firstscreen/FirstPage.dart';
+import 'package:testlocation/screens/camerascreen/CameraScreen.dart';
+import 'package:testlocation/screens/firstscreen/FirsScreen.dart';
 
 class routeGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings)
   {
-    final args = settings.arguments;
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (context) {
@@ -15,6 +17,15 @@ class routeGenerator {
             create: (context) => GeoBloc(),
             child: const FirstPage(),
           );
+        });
+      case '/camera-screen':
+        return MaterialPageRoute(builder: (context) {
+          final args = settings.arguments as Map;
+
+          CameraDescription camera = args['camera'] as CameraDescription;
+          PermissionStatus cameraPermission = args['currentCameraPermission'] as PermissionStatus;
+          PermissionStatus microPermisson = args['currentMicrophonePermission'] as PermissionStatus;
+          return CameraScreen(camera: camera, cameraPermission: cameraPermission, microPermission: microPermisson);
         });
       default:
         return _errorRoute();
