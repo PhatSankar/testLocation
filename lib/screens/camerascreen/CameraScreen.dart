@@ -76,44 +76,36 @@ class _CameraScreenState extends State<CameraScreen> {
             top: 24.0,
             right: 16.0,
           ),
-          child: const Text(
-            'You need to give this permission from the system settings.',
+          child: Text( _cameraPermission.isPermanentlyDenied || _microPermission.isPermanentlyDenied ?
+          'You currently permanently deny permission.' : 'You need to give this permission from the system settings.',
             textAlign: TextAlign.center,
           ),
         ),
         Container(
-          padding: const EdgeInsets.only(
-              left: 16.0, top: 24.0, right: 16.0, bottom: 24.0),
           child: ElevatedButton(
             child: Text(_cameraPermission.isPermanentlyDenied || _microPermission.isPermanentlyDenied
                 ? 'Open settings to allow microphone and camera'
                 : 'Allow access'),
             onPressed: () async {
-              var cameraStatus = await Permission.camera.status;
-              var microphoneStatus = await Permission.microphone.status;
-              if (_cameraPermission.isPermanentlyDenied || _microPermission.isPermanentlyDenied) {
+              var cameraStatus = await Permission.camera.request();
+              var microphoneStatus = await Permission.microphone.request();
+              if (cameraStatus.isPermanentlyDenied || microphoneStatus.isPermanentlyDenied) {
                 openAppSettings();
               }
               else
                 {
-
-                  print(cameraStatus);
-                  print(microphoneStatus);
-
                   if (!cameraStatus.isGranted) {
                       cameraStatus = await Permission.camera.request();
                   }
-                  print("camera granted");
 
                   if (!microphoneStatus.isGranted) {
                     microphoneStatus = await Permission.microphone.request();
                   }
-                  print("camera granted");
+                  setState(() {
+                    _microPermission = microphoneStatus;
+                    _cameraPermission = cameraStatus;
+                  });
                 }
-             setState(() {
-                _microPermission = microphoneStatus;
-                _cameraPermission = cameraStatus;
-              });
             },
           ),
         ),

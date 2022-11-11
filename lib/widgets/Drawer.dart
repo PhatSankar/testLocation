@@ -30,6 +30,12 @@ class AppDrawer extends StatelessWidget {
                 "currentMicrophonePermission": currentMicPermission
               });
             },
+          ),
+          ListTile(
+            title: Text("Gallery screen"),
+            onTap: () async {
+              Navigator.pushReplacementNamed(context, '/gallery-screen');
+            },
           )
         ],
       ),

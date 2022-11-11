@@ -18,7 +18,7 @@ class GeoBloc extends Bloc<GeoEvent, GeoState> {
         if (state is GeoInitial || state is GeoError || state is GeoCompelete)
           {
             emit(GeoLoading());
-            LocationInfo? getDetails = await getInfo(event.currentPosition);
+            LocationInfo? getDetails = (await getInfo(event.currentPosition)) as LocationInfo?;
             if (getDetails == null)
             {
               emit(GeoError());
