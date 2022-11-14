@@ -19,7 +19,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text("Camera screen"),
+            title: Text("Camera screen (this is a test for Gallery Screen"),
             onTap: () async {
               final firstCamera = await getCamera();
               final currentCameraPermission = await Permission.camera.status;
@@ -33,8 +33,14 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             title: Text("Gallery screen"),
-            onTap: () async {
+            onTap: ()  {
               Navigator.pushReplacementNamed(context, '/gallery-screen');
+            },
+          ),
+          ListTile(
+            title: Text("Read Write File"),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/read-write-screen');
             },
           )
         ],

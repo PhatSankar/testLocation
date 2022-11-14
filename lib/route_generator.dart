@@ -7,6 +7,7 @@ import 'package:testlocation/bloc/geo_bloc/geo_bloc.dart';
 import 'package:testlocation/screens/camerascreen/CameraScreen.dart';
 import 'package:testlocation/screens/firstscreen/FirsScreen.dart';
 import 'package:testlocation/screens/galeryscreen/GaleryScreen.dart';
+import 'package:testlocation/screens/readwritefilescreen/ReadWriteFileScreen.dart';
 
 class routeGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -35,6 +36,10 @@ class routeGenerator {
       case '/gallery-screen':
         return MaterialPageRoute(builder: (context) {
           return const GalleryScreen();
+        });
+      case '/read-write-screen':
+        return MaterialPageRoute(builder: (context) {
+          return const ReadWriteFileScreen();
         });
       default:
         return _errorRoute();

@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:testlocation/screens/galeryscreen/common_widget/PickButton.dart';
 import 'package:testlocation/widgets/Drawer.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:testlocation/widgets/PickButton.dart';
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({Key? key}) : super(key: key);
