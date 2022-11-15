@@ -42,6 +42,12 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacementNamed(context, '/read-write-screen');
             },
+          ),
+          ListTile(
+            title: Text("Download open file"),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/download-open-screen');
+            },
           )
         ],
       ),

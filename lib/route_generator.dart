@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path/path.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:testlocation/bloc/download_bloc/download_bloc.dart';
 import 'package:testlocation/bloc/geo_bloc/geo_bloc.dart';
 import 'package:testlocation/screens/camerascreen/CameraScreen.dart';
+import 'package:testlocation/screens/downloadopenscreen/DownloadOpenScreen.dart';
 import 'package:testlocation/screens/firstscreen/FirsScreen.dart';
 import 'package:testlocation/screens/galeryscreen/GaleryScreen.dart';
 import 'package:testlocation/screens/readwritefilescreen/ReadWriteFileScreen.dart';
@@ -40,6 +42,13 @@ class routeGenerator {
       case '/read-write-screen':
         return MaterialPageRoute(builder: (context) {
           return const ReadWriteFileScreen();
+        });
+      case '/download-open-screen':
+        return MaterialPageRoute(builder: (context) {
+          return BlocProvider<DownloadBloc>(
+            create: (context) => DownloadBloc(),
+            child: DownloadOpenScreen(),
+          );
         });
       default:
         return _errorRoute();
