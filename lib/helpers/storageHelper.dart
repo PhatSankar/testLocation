@@ -13,8 +13,9 @@ class Storage {
         directory = Directory('/storage/emulated/0/Download');
         // Put file in global download folder, if for an unknown reason it didn't exist, we fallback
         // ignore: avoid_slow_async_io
-        if (!await directory.exists())
+        if (!await directory.exists()) {
           directory = await getExternalStorageDirectory();
+        }
       }
     } catch (err) {
       print("Cannot get download folder path");
@@ -24,6 +25,15 @@ class Storage {
 
   Future<File> getLocalFile(String nameFile) async {
     var status = await Permission.storage.request();
+    if (status.isPermanentlyDenied) {
+      await openAppSettings();
+    }
+    final path = await _localDownloadPath;
+    return File('$path/$nameFile');
+  }
+
+  Future<File> getLocalFileOnBackgroudService(String nameFile) async {
+    var status = await Permission.storage.status;
     if (status.isPermanentlyDenied) {
       await openAppSettings();
     }

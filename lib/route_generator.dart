@@ -9,6 +9,7 @@ import 'package:testlocation/screens/camerascreen/CameraScreen.dart';
 import 'package:testlocation/screens/downloadopenscreen/DownloadOpenScreen.dart';
 import 'package:testlocation/screens/firstscreen/FirsScreen.dart';
 import 'package:testlocation/screens/galeryscreen/GaleryScreen.dart';
+import 'package:testlocation/screens/internetscreen/InternetScreen.dart';
 import 'package:testlocation/screens/readwritefilescreen/ReadWriteFileScreen.dart';
 
 class routeGenerator {
@@ -49,6 +50,10 @@ class routeGenerator {
             create: (context) => DownloadBloc(),
             child: DownloadOpenScreen(),
           );
+        });
+      case '/internet-screen':
+        return MaterialPageRoute(builder: (context) {
+          return const InternetScreen();
         });
       default:
         return _errorRoute();

@@ -48,7 +48,13 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacementNamed(context, '/download-open-screen');
             },
-          )
+          ),
+          ListTile(
+            title: Text("Internet"),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/internet-screen');
+            },
+          ),
         ],
       ),
     );
