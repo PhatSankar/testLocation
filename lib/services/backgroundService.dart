@@ -16,15 +16,13 @@ void callBackDispatcher() {
           final name = inputData!['name']!;
           var file = await _downloadFile(url: url, fileName: name);
           if (file == null) {
-            return Future.value(false);
-          } else {
-            await OpenFilex.open(file.path);
+            return Future.error(Exception("Fail to download"));
           }
           break;
         }
         catch (exeption) {
           print(exeption.toString());
-          return Future.value(true);
+          return Future.error(exeption);
         }
       default:
     }
