@@ -8,7 +8,6 @@ import 'package:workmanager/workmanager.dart';
 
 void callBackDispatcher() {
   Workmanager().executeTask((taskName, inputData) async {
-    DartPluginRegistrant.ensureInitialized();
     switch (taskName) {
       case 'no-internet':
         try {
@@ -17,6 +16,9 @@ void callBackDispatcher() {
           var file = await _downloadFile(url: url, fileName: name);
           if (file == null) {
             return Future.error(Exception("Fail to download"));
+          }
+          else {
+            await OpenFilex.open(file!.path);
           }
           break;
         }

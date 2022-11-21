@@ -31,12 +31,12 @@ class InternetScreen extends StatelessWidget {
                     buttonTitle: "Check connect wifi",
                     buttonIcon: Icons.signal_wifi_statusbar_4_bar_sharp,
                     onPressedButton: () async {
-                      var hasInternet = await InternetConnectionChecker().hasConnection;
-                      if (hasInternet) {
-                        await openFile(url: _url, fileName: _name);
-                      }
-                      else
-                      {
+                      // var hasInternet = await InternetConnectionChecker().hasConnection;
+                      // if (hasInternet) {
+                      //   await openFile(url: _url, fileName: _name);
+                      // }
+                      // else
+                      // {
                         await Workmanager().registerOneOffTask(
                           "1",
                           "no-internet",
@@ -46,7 +46,7 @@ class InternetScreen extends StatelessWidget {
                             'name': _name,
                           },
                         );
-                      }
+                      // }
                     }),
                 ElevatedButton(onPressed: () {
                   Workmanager().cancelAll();
