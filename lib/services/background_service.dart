@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:dio/dio.dart';
 import 'package:open_filex/open_filex.dart';
-import 'package:testlocation/helpers/storageHelper.dart';
+import 'package:testlocation/ultils/local_storage.dart';
 import 'package:workmanager/workmanager.dart';
 
 void callBackDispatcher() {
@@ -36,7 +36,7 @@ void callBackDispatcher() {
 Future<File?> _downloadFile(
     {required String url, required String fileName}) async {
   try {
-    final localStorage = Storage();
+    final localStorage = LocalStorage();
     final file = await localStorage.getLocalFileOnBackgroudService(fileName);
     final response = await Dio().get(url,
         options: Options(

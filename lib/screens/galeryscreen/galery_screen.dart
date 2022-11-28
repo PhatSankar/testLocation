@@ -5,9 +5,9 @@ import 'package:image_editor_plus/image_editor_plus.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:testlocation/widgets/Drawer.dart';
+import 'package:testlocation/widgets/app_drawer.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:testlocation/widgets/PickButton.dart';
+import 'package:testlocation/widgets/pick_button.dart';
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({Key? key}) : super(key: key);

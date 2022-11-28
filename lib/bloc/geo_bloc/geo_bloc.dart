@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:geocoder_buddy/geocoder_buddy.dart';
 import 'package:testlocation/models/locationInfo.dart';
 
-import '../../services/locationService.dart';
+import '../../services/location_service.dart';
 
 part 'geo_event.dart';
 part 'geo_state.dart';

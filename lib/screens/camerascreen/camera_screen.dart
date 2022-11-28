@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:testlocation/widgets/Drawer.dart';
+import 'package:testlocation/widgets/app_drawer.dart';
 
 class CameraScreen extends StatefulWidget {
   CameraDescription camera;

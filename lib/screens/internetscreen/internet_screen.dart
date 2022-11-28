@@ -4,9 +4,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:open_filex/open_filex.dart';
-import 'package:testlocation/helpers/storageHelper.dart';
-import 'package:testlocation/widgets/Drawer.dart';
-import 'package:testlocation/widgets/PickButton.dart';
+import 'package:testlocation/ultils/local_storage.dart';
+import 'package:testlocation/widgets/app_drawer.dart';
+import 'package:testlocation/widgets/pick_button.dart';
 import 'package:workmanager/workmanager.dart';
 
 const _url = "https://firebasestorage.googleapis.com/v0/b/comic-reader-7a6be.appspot.com/o/Books%2F4Nsz6TdR0GWiHHOXIpaI%2FChapters%2FChap%201?alt=media&token=a2cf323e-0a98-48f7-a533-fbd43e02d001";
@@ -65,7 +65,7 @@ class InternetScreen extends StatelessWidget {
 
   Future<File?> downloadFile({required String url, required String fileName}) async {
     try{
-      final localStorage = Storage();
+      final localStorage = LocalStorage();
       final file = await localStorage.getLocalFile(fileName);
       final response = await Dio().get(
           url,

@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:open_filex/open_filex.dart';
-import 'package:testlocation/helpers/storageHelper.dart';
+import 'package:testlocation/ultils/local_storage.dart';
 
 part 'download_event.dart';
 part 'download_state.dart';
@@ -36,7 +36,7 @@ class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
 
   Future<File?> downloadFile({required String url, required String fileName}) async {
     try{
-      final localStorage = Storage();
+      final localStorage = LocalStorage();
       final file = await localStorage.getLocalFile(fileName);
       final response = await Dio().get(
           url,

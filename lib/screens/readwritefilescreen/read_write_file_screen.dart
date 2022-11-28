@@ -1,8 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:testlocation/widgets/Drawer.dart';
-import 'package:testlocation/helpers/storageHelper.dart';
+import 'package:testlocation/ultils/local_storage.dart';
+import 'package:testlocation/widgets/app_drawer.dart';
 
 class ReadWriteFileScreen extends StatefulWidget {
   const ReadWriteFileScreen({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class ReadWriteFileScreen extends StatefulWidget {
 }
 
 class _ReadWriteFileScreenState extends State<ReadWriteFileScreen> {
-  late Storage localStorage;
+  late LocalStorage localStorage;
   final _nameFileController = TextEditingController();
   final _dataFileController = TextEditingController();
   bool _isWriteFileSuccess = true;
@@ -23,7 +23,7 @@ class _ReadWriteFileScreenState extends State<ReadWriteFileScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    localStorage = Storage();
+    localStorage = LocalStorage();
     _nameFileController.addListener(() {
       setState(() {});
     });

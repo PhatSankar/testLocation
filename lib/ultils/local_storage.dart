@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class Storage {
+class LocalStorage {
   Future<String?> get _localDownloadPath async {
     Directory? directory;
     try {

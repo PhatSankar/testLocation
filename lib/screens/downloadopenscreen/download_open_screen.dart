@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:testlocation/bloc/download_bloc/download_bloc.dart';
-import 'package:testlocation/widgets/Drawer.dart';
-import 'package:testlocation/widgets/PickButton.dart';
+import 'package:testlocation/widgets/app_drawer.dart';
+import 'package:testlocation/widgets/pick_button.dart';
 
 class DownloadOpenScreen extends StatelessWidget {
   final _nameFileController = TextEditingController();

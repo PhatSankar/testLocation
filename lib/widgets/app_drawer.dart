@@ -55,6 +55,12 @@ class AppDrawer extends StatelessWidget {
               Navigator.pushReplacementNamed(context, '/internet-screen');
             },
           ),
+          ListTile(
+            title: Text("Hidden Storage"),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/hidden-storage-screen');
+            },
+          ),
         ],
       ),
     );

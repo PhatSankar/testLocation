@@ -5,12 +5,13 @@ import 'package:path/path.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:testlocation/bloc/download_bloc/download_bloc.dart';
 import 'package:testlocation/bloc/geo_bloc/geo_bloc.dart';
-import 'package:testlocation/screens/camerascreen/CameraScreen.dart';
-import 'package:testlocation/screens/downloadopenscreen/DownloadOpenScreen.dart';
-import 'package:testlocation/screens/firstscreen/FirsScreen.dart';
-import 'package:testlocation/screens/galeryscreen/GaleryScreen.dart';
-import 'package:testlocation/screens/internetscreen/InternetScreen.dart';
-import 'package:testlocation/screens/readwritefilescreen/ReadWriteFileScreen.dart';
+import 'package:testlocation/screens/camerascreen/camera_screen.dart';
+import 'package:testlocation/screens/downloadopenscreen/download_open_screen.dart';
+import 'package:testlocation/screens/firstscreen/first_screen.dart';
+import 'package:testlocation/screens/galeryscreen/galery_screen.dart';
+import 'package:testlocation/screens/internetscreen/internet_screen.dart';
+import 'package:testlocation/screens/readwritefilescreen/read_write_file_screen.dart';
+import 'package:testlocation/screens/storagescreen/storage_screen.dart';
 
 class routeGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -54,6 +55,10 @@ class routeGenerator {
       case '/internet-screen':
         return MaterialPageRoute(builder: (context) {
           return const InternetScreen();
+        });
+      case '/hidden-storage-screen':
+        return MaterialPageRoute(builder: (context) {
+          return const StorageScreen();
         });
       default:
         return _errorRoute();

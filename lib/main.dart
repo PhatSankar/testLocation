@@ -3,12 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:testlocation/route_generator.dart';
-import 'package:testlocation/services/backgroundService.dart';
+import 'package:testlocation/services/background_service.dart';
 import 'package:workmanager/workmanager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  DartPluginRegistrant.ensureInitialized();
   await Workmanager().initialize(
     callBackDispatcher,
     isInDebugMode: true
